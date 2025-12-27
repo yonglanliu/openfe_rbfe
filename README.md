@@ -9,7 +9,7 @@ This guide breaks down the core concepts without overwhelming you with complex m
 
 ---
 
-##🚀 Key Features
+## 🚀 Key Features
 This package streamlines the standard OpenFE workflow into five user-friendly steps:
 1. Molecular Visualization: Interactively view your protein target and ligand structures within the dashboard.
 2. Network Planning: Automatically generate and inspect the Ligand Network (transformation edges).
