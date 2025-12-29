@@ -1,0 +1,10 @@
+[server]
+maxUploadSize = 1024   # unit MB，for example 1024=1GB
+enableXsrfProtection = false
+
+[theme]
+base = "light"
+backgroundColor = "#f5f7fa"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#000000"
+primaryColor = "#1f77b4"

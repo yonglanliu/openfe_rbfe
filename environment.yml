@@ -1,0 +1,16 @@
+name: openfe_rbfe_dashboard
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pandas
+  - numpy
+  - matplotlib
+  - openfe
+  - openmm
+  - rdkit
+  - pydantic
+
+  - pip:
+      - streamlit
