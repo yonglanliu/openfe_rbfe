@@ -70,6 +70,7 @@ This dashboard streamlines the standard OpenFE RBFE workflow into **five user-fr
 > ⚠️ Exact frontend/backend frameworks may evolve as the project matures.
 
 ---
+[https://github.com/yonglanliu/openfe_rbfe_dashboard/assets/USERNAME/VIDEO_ID](https://github.com/yonglanliu/yonglanliu.github.io/tree/main/assets/videos/openfe_rbfe_tutorial_1.m2v)
 
 ## 📦 Installation
 
