@@ -71,7 +71,6 @@ This dashboard streamlines the standard OpenFE RBFE workflow into **five user-fr
 
 ---
 
-https://github.com/yonglanliu/yonglanliu.github.io/assets/videos/openfe_rbfe_tutorial_1.m2v
 
 ---
 
