@@ -11,7 +11,7 @@ This project bridges the gap between powerful alchemical free energy methods and
 If you are new to alchemical transformations, start with this introductory guide:
 
 👉 **Read the Blog Post:**  
-[Introduction to Alchemical Free Energy Calculation: FEP and TI for RBFE](https://yonglanliu.github.io/2025/12/19/RBFE.html)
+[Introduction to Alchemical Free Energy Calculation: FEP and TI for RBFE](https://yonglanliu.github.io/blog/2025/RBFE/)
 
 The post explains:
 - What RBFE and FEP are
