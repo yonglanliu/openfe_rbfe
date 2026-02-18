@@ -7,13 +7,11 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=16G
 #SBATCH --array=0-17
-#SBATCH --output=logs/%x_%A_%a.out
-#SBATCH --error=logs/%x_%A_%a.err    
 
 # -------- User settings --------
 OPENFE_ENV="openfe"               # conda env name
-JSON_DIR="/vf/users/liuy48/fep/openfe/TYK2/json"     # folder containing 18 *.json files
-OUT_ROOT="/vf/users/liuy48/fep/openfe/TYK2/results"        # where replicate_* folders will be created
+JSON_DIR="./TYK2/json"     # folder containing 18 *.json files
+OUT_ROOT="./TYK2/results"        # where replicate_* folders will be created
 N_REP=1                                # replicates per transformation
 # --------------------------------
 
