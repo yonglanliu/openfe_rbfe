@@ -19,7 +19,7 @@ mkdir -p "${WORKDIR}" "${RESDIR}" "${JSONDIR}"
 
 # Build command as array (safe for spaces)
 CMD=(
-    python /data/liuy48/openfe_m/run/run_rbfe.py
+    python script/run_rbfe.py
     --conf_file "${CONF_YAML}"
 )
 
