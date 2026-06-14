@@ -3,11 +3,11 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from streamlit_pages.select_dir import directory_picker_siderbar, directory_picker
-from streamlit_pages.select_file import analysis_tsv_picker
-from streamlit_pages.tab1_gather_data import tab1_design
-import streamlit_pages.tab2_rbfe_network as tab2_rbfe_network
-import streamlit_pages.tab3_dg_trend as tab3_dg_trend
+from streamlit_utils.select_dir import directory_picker_siderbar, directory_picker
+from streamlit_utils.select_file import analysis_tsv_picker
+from streamlit_utils.tab1_gather_data import tab1_design
+import streamlit_utils.tab2_rbfe_network as tab2_rbfe_network
+import streamlit_utils.tab3_dg_trend as tab3_dg_trend
 
 import importlib
 importlib.reload(tab2_rbfe_network)
