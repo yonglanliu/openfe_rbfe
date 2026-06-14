@@ -1,0 +1,158 @@
+# SepTop protocol configuration template
+# Fill in the values to match your system and workflow.
+
+# --- Input file ---
+ligand_sdf: simulation/septop/inputs/charged_ligands.sdf
+protein_pdb: simulation/septop/inputs/protein.pdb
+cofactor_sdf: null
+restart_json: null
+
+# --- Out ---
+workdir: simulation/septop/
+result_dir: simulation/septop/results
+json_dir: simulation/septop/json
+
+# --- Platform ---
+platform: CUDA
+
+# --- Membrane or not ---
+membrane_system: false
+
+# --- General ---
+protocol_repeats: 1
+pressure: 1.0              # bar
+temperature: 310.0         # kelvin
+
+# --- Force field / nonbonded ---
+nonbonded_cutoff: 1.0      # nanometer
+nonbonded_method: PME      # e.g. PME, CutoffNonPeriodic, CutoffPeriodic
+rigid_water: true
+small_molecule_forcefield: openff-2.1.0
+hydrogen_mass: 3.0        # dalton
+
+# --- Partial charges ---
+off_toolkit_backend: ambertools  # e.g. openeye, rdkit, ambertools
+partial_charge_method: am1bcc  # am1bcc or nagl
+
+# --- Alchemical settings ---
+disable_alchemical_dispersion_correction: false
+annihilate_sterics: false
+softcore_a: 1.0
+softcore_b: 1.0
+softcore_c: 6.0
+softcore_alpha: 0.5
+
+# --- Restraints ---
+anchor_finding_strategy: bonded   # "bonded" | "multi-residue"
+host_max_distance: 2.0     # nanometer
+host_min_distance: 0.3     # nanometer
+host_selection: backbone   # "backbone" | "all"
+rmsf_cutoff: 0.1           # nanometer
+solvent_restraint_spring_constant: 1000.0   # kilojoule_per_mole / nanometer ** 2
+
+# --- Equilibration settings ---
+complex_equil_mini_steps: 5000
+complex_equil_equil_length: 0.1        # nanosecond
+complex_equil_equil_length_nvt: 0.1    # nanosecond
+complex_equil_production_length: 2.0   # nanosecond
+
+solvent_equil_mini_steps: 5000
+solvent_equil_equil_length: 0.1        # nanosecond
+solvent_equil_equil_length_nvt: 0.1    # nanosecond
+solvent_equil_production_length: 2.0   # nanosecond
+
+# --- Solvation settings ---
+# Used when membrane_system is false
+complex_solvation_padding: 1.5    # nanometer
+solvent_solvation_padding: 1.5    # nanometer
+
+# Used when membrane_system is true
+# complex_box_size should be a list [x, y, z] in nanometers
+complex_box_size: null
+
+# Used for both complex and solvent
+solvent_model: tip3p
+
+# --- Simulation settings ---
+early_termination_target_error: 0.0   # kilocalorie_per_mole
+complex_sim_mini_step: 5000
+complex_sim_equil_length: 1.0         # nanosecond
+complex_sim_prod_length: 20.0          # nanosecond
+
+solvent_sim_mini_step: 5000
+solvent_sim_equil_length: 5.0         # nanosecond
+solvent_sim_prod_length: 30.0         # nanosecond
+
+# --- Lambda schedules ---
+# These lists should all have the same length within each environment.
+complex_lambda_elec_A: [0.0, 0.0, 0.0, 0.0, 0.0, 
+                        0.0, 0.0, 0.0, 0.25, 0.5, 
+                        0.75, 1.0, 1.0, 1.0, 1.0, 
+                        1.0, 1.0, 1.0, 1.0]
+complex_lambda_elec_B: [1.0, 1.0, 1.0, 1.0, 1.0, 
+                        1.0, 1.0, 1.0, 0.75, 0.5, 
+                        0.25, 0.0, 0.0, 0.0, 0.0, 
+                        0.0, 0.0, 0.0, 0.0]
+complex_lambda_restraints_A: [0.0, 0.05, 0.1, 0.3, 0.5, 
+                              0.75, 1.0, 1.0, 1.0, 1.0, 
+                              1.0, 1.0, 1.0, 1.0, 1.0, 
+                              1.0, 1.0, 1.0, 1.0]
+complex_lambda_restraints_B: [1.0, 1.0, 1.0, 1.0, 1.0, 
+                              1.0, 1.0, 1.0, 1.0, 1.0, 
+                              1.0, 1.0, 1.0, 0.75, 0.5, 
+                              0.3, 0.1, 0.05, 0.0]
+complex_lambda_vdw_A: [0.0, 0.0, 0.0, 0.0, 0.0, 
+                       0.0, 0.0, 0.0, 0.0, 0.0, 
+                       0.0, 0.0, 0.14285714285714285, 0.2857142857142857, 0.42857142857142855, 
+                       0.5714285714285714, 0.7142857142857142, 0.8571428571428571, 1.0]
+complex_lambda_vdw_B: [1.0, 0.8571428571428572, 0.7142857142857143, 0.5714285714285714, 0.4285714285714286, 
+                       0.2857142857142858, 0.1428571428571429, 0.0, 0.0, 0.0, 
+                       0.0, 0.0, 0.0, 0.0, 0.0, 
+                       0.0, 0.0, 0.0, 0.0]
+
+solvent_lambda_elec_A: [0.0, 0.0, 0.0, 0.0, 0.0,
+                        0.0, 0.0, 0.0, 0.0, 0.0,
+                        0.125, 0.25, 0.375, 0.5, 0.625,
+                        0.75, 0.875, 1.0, 1.0, 1.0,
+                        1.0, 1.0, 1.0, 1.0, 1.0,
+                        1.0, 1.0]
+solvent_lambda_elec_B: [1.0, 1.0, 1.0, 1.0, 1.0,
+                        1.0, 1.0, 1.0, 1.0, 1.0,
+                        0.875, 0.75, 0.625, 0.5, 0.375,
+                        0.25, 0.125, 0.0, 0.0, 0.0,
+                        0.0, 0.0, 0.0, 0.0, 0.0,
+                        0.0, 0.0]
+solvent_lambda_restraints_A: [0.0, 0.0, 0.0, 0.0, 0.0,
+                              0.0, 0.0, 0.0, 0.0, 0.0,
+                              0.0, 0.0, 0.0, 0.0, 0.0,
+                              0.0, 0.0, 0.0, 0.0, 0.0,
+                              0.0, 0.0, 0.0, 0.0, 0.0,
+                              0.0, 0.0]
+solvent_lambda_restraints_B: [0.0, 0.0, 0.0, 0.0, 0.0,
+                              0.0, 0.0, 0.0, 0.0, 0.0,
+                              0.0, 0.0, 0.0, 0.0, 0.0,
+                              0.0, 0.0, 0.0, 0.0, 0.0,
+                              0.0, 0.0, 0.0, 0.0, 0.0,
+                              0.0, 0.0]
+solvent_lambda_vdw_A: [0.0, 0.0, 0.0, 0.0, 0.0,
+                       0.0, 0.0, 0.0, 0.0, 0.0,
+                       0.0, 0.0, 0.0, 0.0, 0.0,
+                       0.0, 0.0, 0.0, 0.15, 0.23,
+                       0.3, 0.4, 0.52, 0.64, 0.76,
+                       0.88, 1.0]
+solvent_lambda_vdw_B: [1.0, 0.85, 0.77, 0.7, 0.6,
+                       0.48, 0.36, 0.24, 0.12, 0.0,
+                       0.0, 0.0, 0.0, 0.0, 0.0,
+                       0.0, 0.0, 0.0, 0.0, 0.0,
+                       0.0, 0.0, 0.0, 0.0, 0.0,
+                       0.0, 0.0]
+
+# --- Integrator settings ---
+complex_timestep: 4.0   # femtosecond
+solvent_timestep: 4.0   # femtosecond
+barostat_frequency: 25.0  # timestep
+surface_tension: 300.0  # bar * nanometer
+
+# --- Mapper and planner----
+mapper: KartografAtomMapper  # LomapAtomMapper, KartografAtomMapper
+planner: minimal_spanning  # minimal_spanning, minimal_redundant, radial
