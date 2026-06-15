@@ -89,7 +89,7 @@ tab_1, tab_2, tab_3 = st.tabs(
 # ============================================================
 selected_workdir = directory_picker_siderbar(
     label="Custom working directory",
-    start_dir="/data/liuy48/openfe_m/simulation/",
+    start_dir="./",
     key_prefix="main_workdir",
 )
 
