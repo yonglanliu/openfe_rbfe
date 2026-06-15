@@ -6,7 +6,7 @@ from pathlib import Path
 # ============================================================
 def directory_picker_siderbar(
     label,
-    start_dir="/data/liuy48/openfe_m/simulation/",
+    start_dir="./",
     key_prefix="workdir",
 ):
     st.sidebar.subheader(label)
@@ -89,7 +89,7 @@ def directory_picker_siderbar(
 
 def directory_picker(
     label,
-    start_dir="/data/liuy48/openfe_m/simulation/",
+    start_dir="./",
     key_prefix="workdir",
 ):
     st.subheader(label)
